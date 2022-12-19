@@ -10,31 +10,23 @@ import javax.persistence.Table;
 public class Conta {
 
 	@Id
-	private Long id_conta;
+	private Long idConta;
 	@Column(name = "nome_responsavel", length = 50, nullable = false)
 	private String nome;
 
-	public Conta() {
+	public Long getIdConta() {
+		return idConta;
 	}
 
-	public Conta(Long id_conta, String nome) {
-		this.id_conta = id_conta;
-		this.nome = nome;
+	public void setIdConta(Long idConta) {
+		this.idConta = idConta;
 	}
 
-	public Long getId_conta() {
-		return id_conta;
-	}
-
-	public void setId_conta(Long id_conta) {
-		this.id_conta = id_conta;
-	}
-
-	public String getNome_responsavel() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome_responsavel(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
