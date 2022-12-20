@@ -1,6 +1,7 @@
 package br.com.banco.controller;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,21 @@ public class TransferenciaController {
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal) {
 		List<Transferencia> periodo = transferenciaService.findAllByPeriodo(dataInicial, dataFinal);
 		return ResponseEntity.ok(periodo);
+	}
+	
+	@GetMapping("/periodo/nome")
+	public ResponseEntity<List<Transferencia>> findAllByPeriodoNome(@RequestParam String nome, 
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime inicio, 
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim){
+		ResponseEntity<List<Transferencia>> listaPeriodo = findAllByPeriodo(inicio, fim);
+		List<Transferencia> listaTodos = new ArrayList<Transferencia>();
+		listaPeriodo.getBody().forEach(n -> {
+			if(n.getNomeOperadorTransacao().contains(nome)) {
+				listaTodos.add(n);
+			}
+		});
+		return ResponseEntity.ok(listaTodos);
+		
 	}
 
 }
