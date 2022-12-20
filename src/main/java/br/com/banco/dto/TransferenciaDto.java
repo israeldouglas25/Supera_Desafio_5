@@ -7,7 +7,7 @@ import br.com.banco.model.Transferencia;
 public class TransferenciaDto {
 
 	private Long id;
-	private double valor;
+	private String valor;
 	private LocalDateTime dataTransferencia;
 	private String tipo;
 	private String nomeOperadorTransacao;
@@ -30,11 +30,11 @@ public class TransferenciaDto {
 		this.id = id;
 	}
 
-	public double getValor() {
+	public String getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(String valor) {
 		this.valor = valor;
 	}
 

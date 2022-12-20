@@ -1,5 +1,6 @@
 package br.com.banco.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +13,8 @@ public interface TransferenciaRepository extends JpaRepository<Transferencia, Lo
 	List<Transferencia> findTransferenciaByConta(Conta conta);
 
 	List<Transferencia> findTransferenciaByNomeOperadorTransacao(String name);
+
+	List<Transferencia> findTransferenciaByDataTransferenciaBetween(
+			LocalDateTime dataInicial, LocalDateTime dataFinal);
 
 }

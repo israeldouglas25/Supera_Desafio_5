@@ -1,5 +1,6 @@
 package br.com.banco.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,26 @@ public class TransferenciaService {
 
 	@Autowired
 	private TransferenciaRepository transferenciaRepository;
-	
+
 	@Autowired
 	private ContaService contaService;
-	
-	public List<Transferencia> findAll(){
+
+	public List<Transferencia> findAll() {
 		return transferenciaRepository.findAll();
 	}
-	
-	public List<Transferencia> findAllByNome(String nome){
+
+	public List<Transferencia> findAllByNome(String nome) {
 		return transferenciaRepository.findTransferenciaByNomeOperadorTransacao(nome);
 	}
-	
-	public List<Transferencia> findAllByConta(Long id){
+
+	public List<Transferencia> findAllByConta(Long id) {
 		Conta conta = contaService.findById(id);
 		return transferenciaRepository.findTransferenciaByConta(conta);
 	}
-	
+
+	public List<Transferencia> findAllByPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) {
+		return transferenciaRepository
+				.findTransferenciaByDataTransferenciaBetween(dataInicial, dataFinal);
+	}
+
 }
