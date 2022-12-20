@@ -27,7 +27,8 @@
 :white_check_mark: A sua api deve fornecer os dados de transferência de acordo com o número da conta bacária.
 
 :white_check_mark: Caso não seja informado nenhum filtro, retornar  todos os dados de transferência.
-- Caso seja informado um período de tempo, retornar todas as transferências relacionadas à aquele período de tempo.
+
+:white_check_mark: Caso seja informado um período de tempo, retornar todas as transferências relacionadas à aquele período de tempo.
 
 :white_check_mark: Caso seja informado o nome do operador da transação, retornar todas as transferências relacionados à aquele operador.
 - Caso todos os filtros sejam informados, retornar todas as transferências com base no período de tempo informado e o nome do operador.
