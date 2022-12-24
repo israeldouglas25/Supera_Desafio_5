@@ -10,16 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.NumberFormat;
-
 @Entity
 @Table(name = "transferencia")
 public class Transferencia {
 
 	@Id
 	private Long id;
-	@NumberFormat(pattern = "#,###.00") @Column(name = "valor", nullable = false)
-	private String valor;
+	@Column(name = "valor", nullable = false)
+	private Double valor;
 	@Column(name = "data_transferencia", nullable = false)
 	private LocalDateTime dataTransferencia;
 	@Column(name = "tipo", nullable = false, length = 15)
@@ -38,11 +36,11 @@ public class Transferencia {
 		this.id = id;
 	}
 
-	public String getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
