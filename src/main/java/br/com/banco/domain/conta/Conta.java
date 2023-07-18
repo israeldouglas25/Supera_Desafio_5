@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Getter
@@ -17,9 +16,9 @@ import javax.persistence.Table;
 @EqualsAndHashCode(of = "idConta")
 public class Conta {
 
-	@Id
-	private Long idConta;
-	@Column(name = "nome_responsavel", length = 50, nullable = false)
-	private String nome;
+    @Id
+    private Long idConta;
+    @Column(name = "nome_responsavel", length = 50, nullable = false)
+    private String nome;
 
 }
